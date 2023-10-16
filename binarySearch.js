@@ -21,4 +21,4 @@ const binarySearch = (data, target) => {
     return null;
 };
 
-console.log(binarySearch(testArray, 1));
+console.log(binarySearch(testArray, 23));
