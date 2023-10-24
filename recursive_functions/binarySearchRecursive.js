@@ -22,3 +22,5 @@ console.log(
         testArray[testArray.length - 1]
     )
 );
+
+modules.exports = { binarySearchRecursive };

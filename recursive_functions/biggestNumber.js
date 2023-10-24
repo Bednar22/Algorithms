@@ -9,3 +9,5 @@ const findBiggestNumber = (data, n) => {
 };
 
 console.log(findBiggestNumber(testArray, testArray.length));
+
+module.exports = { findBiggestNumber };

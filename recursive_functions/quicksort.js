@@ -1,5 +1,3 @@
-const testArray = [9, 23, 12, 11, 545, 2132, 212, 33, 2, 333];
-
 const quicksort = (data) => {
     if (data.length <= 1) {
         return data;
@@ -11,4 +9,4 @@ const quicksort = (data) => {
     }
 };
 
-console.log(quicksort(testArray));
+module.exports = { quicksort };

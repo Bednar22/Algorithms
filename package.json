@@ -1,0 +1,21 @@
+{
+    "name": "algorithms",
+    "version": "1.0.0",
+    "description": "This repository is inspired by the book \"Grokking algorithms. An illustrated guide for programmers and other curious people\" by Aditya Y. Bhargava. \r I implemented algorithms that are mentioned in this book to refresh some of the knowledge and also learn something new.",
+    "scripts": {
+        "test": "jest --coverage"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Bednar22/Algorithms.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Bednar22/Algorithms/issues"
+    },
+    "homepage": "https://github.com/Bednar22/Algorithms#readme",
+    "devDependencies": {
+        "jest": "^29.7.0"
+    }
+}

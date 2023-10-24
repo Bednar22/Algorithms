@@ -8,4 +8,4 @@ const sum = (data, n) => {
     return data[n - 1] + sum(data, n - 1);
 };
 
-console.log(sum(testArray, testArray.length));
+module.exports = { sum };
