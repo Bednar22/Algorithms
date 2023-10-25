@@ -20,7 +20,7 @@ test('should return index of value that is in first half of an array', () => {
 });
 
 test('should return index of value that is in second half of an array', () => {
-    const index = 16;
+    const index = 24;
     const searchedValue = TEST_ARRAY[index];
 
     const searchResult = binarySearchRecursive(
