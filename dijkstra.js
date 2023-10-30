@@ -1,18 +1,3 @@
-const TEST_GRAPH = {
-    start: {
-        a: 6,
-        b: 2,
-    },
-    a: {
-        end: 1,
-    },
-    b: {
-        a: 3,
-        end: 5,
-    },
-    end: {},
-};
-
 const max = 1000000;
 
 const findLowestCostNode = (costTableArg, processed) => {
@@ -29,23 +14,52 @@ const findLowestCostNode = (costTableArg, processed) => {
     return lowestCostNode;
 };
 
-const dijkstra = (graph) => {
-    let costObject = {
-        a: 6,
-        b: 2,
-        end: max,
-    };
+const createPath = (parents) => {
+    const path = ['end'];
+    while (path[path.length - 1] != 'start') {
+        const nodeBefore = parents[path[path.length - 1]];
+        path.push(nodeBefore);
+    }
+    return path.reverse();
+};
 
-    let parents = {
-        a: 'start',
-        b: 'start',
-        end: null,
-    };
+const prepareCosts = (graph) => {
+    let costs = { ...graph.start };
+
+    for (node in graph) {
+        if (!(node in costs) && node != 'start') {
+            costs[node] = max;
+        }
+    }
+
+    return costs;
+};
+
+const prepareParents = (graph) => {
+    let parents = {};
+
+    for (node in graph) {
+        if (!(node in parents)) {
+            if (node == 'start') {
+                for (startNode in graph['start']) {
+                    parents[startNode] = 'start';
+                }
+            } else {
+                parents[node] = undefined;
+            }
+        }
+    }
+
+    return parents;
+};
+
+const dijkstra = (graph) => {
+    let parents = prepareParents(graph);
+    let costObject = prepareCosts(graph);
 
     const processed = [];
     let node = findLowestCostNode(costObject, processed);
     while (node != undefined) {
-        console.log(node);
         cost = costObject[node];
         neighbours = graph[node];
         for (neighbour in neighbours) {
@@ -58,7 +72,7 @@ const dijkstra = (graph) => {
         processed.push(node);
         node = findLowestCostNode(costObject, processed);
     }
-    return parents;
+    return createPath(parents);
 };
 
-console.log(dijkstra(TEST_GRAPH));
+module.exports = { dijkstra };
