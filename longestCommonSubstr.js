@@ -21,7 +21,6 @@ const longestCommonSubstr = (str1, str2) => {
             charIndex = [index, localIndex];
         }
     });
-    console.log(grid);
     return str1.slice(charIndex[0] - biggestNumber + 1, charIndex[0] + 1);
 };
 
